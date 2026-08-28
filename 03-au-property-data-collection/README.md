@@ -2,6 +2,8 @@
 
 Sourced and consolidated raw datasets for an Australian property market analysis, covering suburb reference data, crime statistics, house values, rental values, school locations, and transport stops across NSW, VIC, and SA. This dataset is the foundation for the data warehouse, SSRS, and Power BI work in the projects that follow.
 
+![SSIS staging load control flow](screenshots/etl-pipeline-overview.png)
+
 **Contents:**
 - `Task 5 - AU Property Data Collection and Consolidation.docx` — task brief
 - `AUProperty_DataModel_Documentation.docx` / `.pdf` — data model documentation

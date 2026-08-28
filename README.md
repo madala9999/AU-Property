@@ -4,6 +4,16 @@ This repository consolidates the work completed during a Business Intelligence d
 
 Each numbered folder below is a self-contained project with its own README, source files, and (where applicable) documentation write-ups and screenshots produced at the time.
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Power BI — House Value dashboard](06-powerbi-existing-datawarehouse/screenshots/house-value.png) | ![Power BI — Crime Summary dashboard](06-powerbi-existing-datawarehouse/screenshots/crime-summary.png) |
+| ![AU Property star schema](04-datawarehouse-design-ssis/star_schema_diagram.png) | ![SSIS staging load control flow](03-au-property-data-collection/screenshots/etl-pipeline-overview.png) |
+| ![BI Competition — PropertyDW star schema](08-competition-datawarehouse-modeling/screenshots/star-schema-diagram.png) | ![Sample rendered SSRS report](09-competition-powerbi-dashboard/screenshots/school-details-sample-report.png) |
+
+More screenshots for each project are in its own folder README — see the table below.
+
 ## Projects
 
 | # | Project | What it covers |

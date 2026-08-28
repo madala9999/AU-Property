@@ -2,10 +2,12 @@
 
 Designed a star-schema dimensional model for the AU property data and built SSIS packages to load it from staging into the warehouse.
 
+![AU Property star schema — DimSuburb as conformed hub](star_schema_diagram.png)
+
 **Contents:**
 - `BI Advanced - Design Datawarehouse & build SSIS package.docx` — task brief
 - `AUProperty_StarSchema_DesignDocument.docx` — dimensional model design (facts, dimensions, grain)
-- `star_schema_diagram.png` — schema diagram
+- `star_schema_diagram.png` — schema diagram (above)
 - `AUProperty_StarSchema_DDL_ETL.sql`, `SQL Scripts.sql` — DDL and ETL SQL
 - `AUProperty_DataWarehouse_ImplementationSummary.docx` — implementation summary
 - `Screenshot Documentation.docx` — build/result screenshots

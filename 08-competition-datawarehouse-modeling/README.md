@@ -2,6 +2,8 @@
 
 Entry for the internship's BI Developer competition (Part 1): dimensional modeling exercise producing a bus matrix, schema diagram, design-decision writeup, and SSIS ETL packages.
 
+![PropertyDW star schema — two facts sharing a conformed location dimension](screenshots/star-schema-diagram.png)
+
 **Contents:**
 - `Task Description.docx` — competition brief
 - `Phase3_Dimensional_Model.docx`, `PropertySprint_ETL_Writeup.docx` — modeling writeups
