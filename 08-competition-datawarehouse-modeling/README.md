@@ -5,7 +5,6 @@ Entry for the internship's BI Developer competition (Part 1): dimensional modeli
 **Contents:**
 - `Task Description.docx` — competition brief
 - `Phase3_Dimensional_Model.docx`, `PropertySprint_ETL_Writeup.docx` — modeling writeups
-- `SSIS_Property_Sprint_StepByStep_Guide.pdf` — build guide
 - `01_PropertyDW_Setup.sql` — warehouse setup SQL
 - `docs/` — submission docs: SQL scripts, bus matrix, schema diagram, design decisions
 - `PropertySprint_ETL/` — SSIS packages (staging load, star-schema load)

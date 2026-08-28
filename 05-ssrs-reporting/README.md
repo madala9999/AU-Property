@@ -4,7 +4,6 @@ Built paginated SQL Server Reporting Services (SSRS) reports on top of the AU pr
 
 **Contents:**
 - `BI Advanced - SSRS Report Task Summary from IC .docx` — task brief
-- `Task7_SSRS_StepByStep_Guide.docx` — build guide
 - `AUProperty_SSRS_ImplementationSummary.docx` — implementation summary
 - `AUProperty_SSRS_ReportDocumentation.docx` — report documentation
 - `AUProperty_SSRS_SQL_Scripts.sql` / `.docx` — supporting SQL

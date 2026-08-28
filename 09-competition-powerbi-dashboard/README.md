@@ -4,7 +4,6 @@ Entry for the internship's BI Developer competition (Part 2): a Power BI dashboa
 
 **Contents:**
 - `Property Analysis BI Developer Competition Tasks Instruction - Part 2.pdf` — competition brief
-- `Part 2 - SSRS and Power BI Step-by-Step Guide.pdf` — build guide
 - `BI Competition - PowerBI Dashboard Word Doc.docx` — writeup
 - `Bus_Matrix.xlsx`, `Design_Decisions.docx`, `Schema_Diagram.png` — modeling artifacts
 - `01_Create_Staging_Tables.sql`, `02_Create_Dimension_Tables.sql`, `03_Create_Fact_Tables.sql` — warehouse build SQL

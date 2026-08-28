@@ -4,7 +4,6 @@ Built a Power BI dashboard connecting directly to a pre-existing data warehouse,
 
 **Contents:**
 - `BI Advanced - PowerBI - Existing Datawarehouse.docx` — task brief
-- `Task8_PowerBI_StepByStep_Guide.docx` — build guide
 - `AUProperty_DataConnectionDocumentation.docx` / `.pdf` — how the report connects to the warehouse
 - `AUProperty_DashboardInsightsSummary.docx` / `.pdf` — key insights from the dashboard
 - `AUProperty_ScreenshotDocumentation.docx` / `.pdf` — dashboard screenshots

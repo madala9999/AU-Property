@@ -4,7 +4,6 @@ Sourced and consolidated raw datasets for an Australian property market analysis
 
 **Contents:**
 - `Task 5 - AU Property Data Collection and Consolidation.docx` — task brief
-- `AU_Property_Data_Collection_Consolidation_Guide.pdf` — step-by-step guide followed
 - `AUProperty_DataModel_Documentation.docx` / `.pdf` — data model documentation
 - `AUProperty_Implementation_Summary.docx` — summary of the implementation approach
 - `AUProperty_SQL_Scripts.sql` — SQL used to load/consolidate the data
