@@ -2,10 +2,16 @@
 
 Built a Power BI dashboard connecting directly to a pre-existing data warehouse, covering data connection setup, modeling, and visualization. Five report pages: Home, House Value, Rental Value, Transport, and Crime — each with map, KPI cards, and breakdown charts, filterable by State/City/Suburb.
 
-| | |
-|---|---|
-| ![House Value page](screenshots/house-value.png) | ![Crime Summary page](screenshots/crime-summary.png) |
-| ![School Count page](screenshots/school-count.png) | ![Transport Stops page](screenshots/transport-stops.png) |
+<table>
+<tr>
+<td width="50%"><img src="screenshots/house-value.png" width="100%"><br><sub>House Value</sub></td>
+<td width="50%"><img src="screenshots/crime-summary.png" width="100%"><br><sub>Crime Summary</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/school-count.png" width="100%"><br><sub>School Count</sub></td>
+<td width="50%"><img src="screenshots/transport-stops.png" width="100%"><br><sub>Transport Stops</sub></td>
+</tr>
+</table>
 
 **Contents:**
 - `BI Advanced - PowerBI - Existing Datawarehouse.docx` — task brief

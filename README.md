@@ -6,11 +6,20 @@ Each numbered folder below is a self-contained project with its own README, sour
 
 ## Screenshots
 
-| | |
-|---|---|
-| ![Power BI — House Value dashboard](06-powerbi-existing-datawarehouse/screenshots/house-value.png) | ![Power BI — Crime Summary dashboard](06-powerbi-existing-datawarehouse/screenshots/crime-summary.png) |
-| ![AU Property star schema](04-datawarehouse-design-ssis/star_schema_diagram.png) | ![SSIS staging load control flow](03-au-property-data-collection/screenshots/etl-pipeline-overview.png) |
-| ![BI Competition — PropertyDW star schema](08-competition-datawarehouse-modeling/screenshots/star-schema-diagram.png) | ![Sample rendered SSRS report](09-competition-powerbi-dashboard/screenshots/school-details-sample-report.png) |
+<table>
+<tr>
+<td width="50%"><img src="06-powerbi-existing-datawarehouse/screenshots/house-value.png" width="100%"><br><sub>Power BI — House Value dashboard</sub></td>
+<td width="50%"><img src="06-powerbi-existing-datawarehouse/screenshots/crime-summary.png" width="100%"><br><sub>Power BI — Crime Summary dashboard</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="04-datawarehouse-design-ssis/star_schema_diagram.png" width="100%"><br><sub>AU Property star schema</sub></td>
+<td width="50%"><img src="03-au-property-data-collection/screenshots/etl-pipeline-overview.png" width="100%"><br><sub>SSIS staging load control flow</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="08-competition-datawarehouse-modeling/screenshots/star-schema-diagram.png" width="100%"><br><sub>BI Competition — PropertyDW star schema</sub></td>
+<td width="50%"><img src="09-competition-powerbi-dashboard/screenshots/school-details-sample-report.png" width="100%"><br><sub>Sample rendered SSRS report</sub></td>
+</tr>
+</table>
 
 More screenshots for each project are in its own folder README — see the table below.
 
