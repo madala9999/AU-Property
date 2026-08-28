@@ -1,0 +1,14 @@
+# Visual Studio / SSDT project cruft
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.rsuser
+
+# SSRS cached preview data (large binary caches, not source)
+*.rdl.data
+
+# OS junk
+Thumbs.db
+.DS_Store

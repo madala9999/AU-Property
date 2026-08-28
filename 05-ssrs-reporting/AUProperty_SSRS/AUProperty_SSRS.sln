@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37411.7 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "AUProperty_SSRS", "AUProperty_SSRS.rptproj", "{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Debug|Default.ActiveCfg = Debug
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Debug|Default.Build.0 = Debug
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Debug|Default.Deploy.0 = Debug
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.DebugLocal|Default.Build.0 = DebugLocal
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Release|Default.ActiveCfg = Release
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Release|Default.Build.0 = Release
+		{B797C60D-12AB-ABE6-0F7F-45E50BAE7EBA}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8306727-C3D8-4B01-8FA8-67E01492DD7E}
+	EndGlobalSection
+EndGlobal

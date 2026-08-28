@@ -1,0 +1,22 @@
+{
+  "name": "AUProperty Theme",
+  "dataColors": [
+    "#1F3864", "#2E74B5", "#70AD47", "#FFC000",
+    "#ED7D31", "#7030A0", "#C00000", "#8497B0"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F1F1F",
+  "tableAccent": "#1F3864",
+  "good": "#70AD47",
+  "neutral": "#FFC000",
+  "bad": "#C00000",
+  "maximum": "#1F3864",
+  "center": "#8497B0",
+  "minimum": "#FFFFFF",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 13, "color": "#1F3864" },
+    "callout": { "fontFace": "Segoe UI Bold", "fontSize": 26, "color": "#1F3864" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 9, "color": "#404040" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 10, "color": "#FFFFFF" }
+  }
+}

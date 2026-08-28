@@ -1,0 +1,2488 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/3/2026 1:34:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SIRILENOVO"
+  DTS:CreatorName="SIRILENOVO\drsre"
+  DTS:DTSID="{41D30729-EF9B-47E8-BA32-916F6F30F610}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="5129"
+  DTS:ObjectName="PKG2_Load_StarSchema"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{A40D16B0-B3FC-4D20-9AC8-F4CBB65EF144}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{412D78AE-708B-4849-8DD2-F5EC3B5D6467}"
+      DTS:ObjectName="SIRILENOVO\IC.PropertyDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SIRILENOVO\IC;Initial Catalog=PropertyDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-PKG2_Load_StarSchema-{412D78AE-708B-4849-8DD2-F5EC3B5D6467}SIRILENOVO\IC.PropertyDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load DimLocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{53CF44DA-C383-433B-92DC-693D385DF4B9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load DimLocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination - DimLocation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[Suburb]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Suburb"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Suburb]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                      cachedDataType="i4"
+                      cachedName="Postcode"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[District]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="District"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[District]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[StateCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="StateCode"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="numeric"
+                      cachedName="Latitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="numeric"
+                      cachedName="Longitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      dataType="i4"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="100"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="100"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source - AusLocation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[load_AusLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    CAST(LTRIM(RTRIM(suburb)) AS NVARCHAR(100))     AS Suburb,
+    TRY_CAST(postcode AS INT)                        AS Postcode,
+    CAST(LTRIM(RTRIM(city)) AS NVARCHAR(100))        AS City,
+    CAST(LTRIM(RTRIM(district)) AS NVARCHAR(100))    AS District,
+    LTRIM(RTRIM([state]))     AS [State],
+    LTRIM(RTRIM(state_code))  AS StateCode,
+    TRY_CAST(lat AS DECIMAL(9,6)) AS Latitude,
+    TRY_CAST(lon AS DECIMAL(9,6)) AS Longitude
+FROM dbo.load_AusLocation
+WHERE suburb IS NOT NULL AND TRY_CAST(postcode AS INT) IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      name="Suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[District]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[District]"
+                      name="District"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      length="10"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      dataType="i4"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="100"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="100"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      name="Suburb" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      name="Postcode" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[District]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[District]"
+                      name="District" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load DimLocation.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load DimLocation\OLE DB Source - AusLocation.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load DimSchool"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87EE2154-2EC0-46D3-9040-F441A7FD572F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load DimSchool"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load DimSchool\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSchool]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load DimSchool\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SchoolCode]"
+                      cachedDataType="i4"
+                      cachedName="SchoolCode"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolCode]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SchoolName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SchoolName"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolName]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolName]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Suburb]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Suburb"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Suburb]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                      cachedDataType="i4"
+                      cachedName="Postcode"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LevelOfSchooling]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="LevelOfSchooling"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LevelOfSchooling]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[LevelOfSchooling]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SelectiveSchool]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SelectiveSchool"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SelectiveSchool]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SelectiveSchool]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OpportunityClass]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="OpportunityClass"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityClass]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[OpportunityClass]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SchoolSpecialtyType]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SchoolSpecialtyType"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolSpecialtyType]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolSpecialtyType]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SchoolGender]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SchoolGender"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolGender]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolGender]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentNumber]"
+                      cachedDataType="i4"
+                      cachedName="StudentNumber"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentNumber]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[StudentNumber]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ICSEA_Value]"
+                      cachedDataType="i4"
+                      cachedName="ICSEA_Value"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICSEA_Value]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[ICSEA_Value]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="numeric"
+                      cachedName="Latitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="numeric"
+                      cachedName="Longitude"
+                      cachedPrecision="9"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolKey]"
+                      dataType="i4"
+                      name="SchoolKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolCode]"
+                      dataType="i4"
+                      name="SchoolCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SchoolName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      dataType="i4"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LevelOfSchooling]"
+                      dataType="wstr"
+                      length="100"
+                      name="LevelOfSchooling" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SelectiveSchool]"
+                      dataType="wstr"
+                      length="100"
+                      name="SelectiveSchool" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityClass]"
+                      dataType="wstr"
+                      length="10"
+                      name="OpportunityClass" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolSpecialtyType]"
+                      dataType="wstr"
+                      length="100"
+                      name="SchoolSpecialtyType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SchoolGender]"
+                      dataType="wstr"
+                      length="50"
+                      name="SchoolGender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StudentNumber]"
+                      dataType="i4"
+                      name="StudentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ICSEA_Value]"
+                      dataType="i4"
+                      name="ICSEA_Value" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load DimSchool\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load DimSchool\OLE DB Source - Schools"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source - Schools"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    TRY_CAST(LTRIM(RTRIM(school_code)) AS INT)                    AS SchoolCode,
+    CAST(LTRIM(RTRIM(school_name)) AS NVARCHAR(255))               AS SchoolName,
+    CAST(LTRIM(RTRIM(town_suburb)) AS NVARCHAR(100))                AS Suburb,
+    TRY_CAST(LTRIM(RTRIM(postcode)) AS INT)                         AS Postcode,
+    CAST(LTRIM(RTRIM(level_of_schooling)) AS NVARCHAR(100))         AS LevelOfSchooling,
+    CAST(LTRIM(RTRIM(selective_school)) AS NVARCHAR(100))           AS SelectiveSchool,
+    CAST(LTRIM(RTRIM(opportunity_class)) AS NVARCHAR(10))           AS OpportunityClass,
+    CAST(LTRIM(RTRIM(school_specialty_type)) AS NVARCHAR(100))      AS SchoolSpecialtyType,
+    CAST(LTRIM(RTRIM(school_gender)) AS NVARCHAR(50))               AS SchoolGender,
+    TRY_CAST(NULLIF(LTRIM(RTRIM(student_number)), 'np') AS INT)     AS StudentNumber,
+    TRY_CAST(NULLIF(LTRIM(RTRIM(ICSEA_Value)), 'np') AS INT)        AS ICSEA_Value,
+    TRY_CAST(latitude AS DECIMAL(9,6))                              AS Latitude,
+    TRY_CAST(longitude AS DECIMAL(9,6))                             AS Longitude
+FROM dbo.load_Schools
+WHERE school_name IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolCode]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolCode]"
+                      name="SchoolCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolName]"
+                      length="255"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolName]"
+                      name="SchoolName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      name="Suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[LevelOfSchooling]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[LevelOfSchooling]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[LevelOfSchooling]"
+                      name="LevelOfSchooling"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SelectiveSchool]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SelectiveSchool]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SelectiveSchool]"
+                      name="SelectiveSchool"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[OpportunityClass]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[OpportunityClass]"
+                      length="10"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[OpportunityClass]"
+                      name="OpportunityClass"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolSpecialtyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolSpecialtyType]"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolSpecialtyType]"
+                      name="SchoolSpecialtyType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolGender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolGender]"
+                      length="50"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[SchoolGender]"
+                      name="SchoolGender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[StudentNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[StudentNumber]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[StudentNumber]"
+                      name="StudentNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[ICSEA_Value]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[ICSEA_Value]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[ICSEA_Value]"
+                      name="ICSEA_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolCode]"
+                      dataType="i4"
+                      name="SchoolCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SchoolName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      dataType="i4"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[LevelOfSchooling]"
+                      dataType="wstr"
+                      length="100"
+                      name="LevelOfSchooling" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SelectiveSchool]"
+                      dataType="wstr"
+                      length="100"
+                      name="SelectiveSchool" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[OpportunityClass]"
+                      dataType="wstr"
+                      length="10"
+                      name="OpportunityClass" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolSpecialtyType]"
+                      dataType="wstr"
+                      length="100"
+                      name="SchoolSpecialtyType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[SchoolGender]"
+                      dataType="wstr"
+                      length="50"
+                      name="SchoolGender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[StudentNumber]"
+                      dataType="i4"
+                      name="StudentNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[ICSEA_Value]"
+                      dataType="i4"
+                      name="ICSEA_Value" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolCode]"
+                      name="SchoolCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolName]"
+                      name="SchoolName" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      name="Suburb" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      name="Postcode" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[LevelOfSchooling]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[LevelOfSchooling]"
+                      name="LevelOfSchooling" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SelectiveSchool]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SelectiveSchool]"
+                      name="SelectiveSchool" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[OpportunityClass]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[OpportunityClass]"
+                      name="OpportunityClass" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolSpecialtyType]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolSpecialtyType]"
+                      name="SchoolSpecialtyType" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolGender]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[SchoolGender]"
+                      name="SchoolGender" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[StudentNumber]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[StudentNumber]"
+                      name="StudentNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ICSEA_Value]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ICSEA_Value]"
+                      name="ICSEA_Value" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="9"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load DimSchool.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load DimSchool\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load DimSchool\OLE DB Source - Schools.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load FactPropertyValue"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5E555B23-BC27-4371-8DEC-2187F3DE1BA3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load FactPropertyValue"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load FactPropertyValue\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactPropertyValue]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationKey]"
+                      cachedDataType="i4"
+                      cachedName="LocationKey"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="CategoryKey"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PropertyMedianValue]"
+                      cachedDataType="cy"
+                      cachedName="PropertyMedianValue"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyMedianValue]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyValueKey]"
+                      dataType="i4"
+                      name="PropertyValueKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      dataType="i4"
+                      name="CategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyMedianValue]"
+                      dataType="cy"
+                      name="PropertyMedianValue" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load FactPropertyValue\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    dl.LocationKey,
+    dd.DateKey,
+    dc.CategoryKey,
+    TRY_CAST(REPLACE(REPLACE(LTRIM(RTRIM(pmv.Property_Median_Value)), '$', ''), ',', '') AS MONEY) AS PropertyMedianValue
+FROM dbo.load_PropertyMedianValue pmv
+INNER JOIN dbo.DimLocation dl
+    ON LTRIM(RTRIM(pmv.Suburb)) = dl.Suburb
+    AND TRY_CAST(pmv.Postcode AS INT) = dl.Postcode
+INNER JOIN dbo.DimDate dd
+    ON TRY_CAST(pmv.Updated_Year AS INT) = dd.[Year]
+    AND TRY_CAST(pmv.Updated_Month AS INT) = dd.[Month]
+INNER JOIN dbo.DimCategory dc
+    ON TRY_CAST(REPLACE(REPLACE(LTRIM(RTRIM(pmv.Property_Median_Value)), '$', ''), ',', '') AS MONEY)
+       BETWEEN dc.MinValue AND dc.MaxValue
+WHERE pmv.Property_Median_Value IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      name="LocationKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                      name="CategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PropertyMedianValue]"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]"
+                      name="PropertyMedianValue"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                      dataType="i4"
+                      name="CategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PropertyMedianValue]"
+                      dataType="cy"
+                      name="PropertyMedianValue" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      name="LocationKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                      name="CategoryKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PropertyMedianValue]"
+                      dataType="cy"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PropertyMedianValue]"
+                      name="PropertyMedianValue" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load FactPropertyValue.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load FactPropertyValue\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load FactPropertyValue\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load FactSchoolLocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{93203A78-A0BF-4E1E-A1E7-E6C500CF5E62}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load FactSchoolLocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination - FactSchoolLocation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactSchoolLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].Columns[SchoolKey]"
+                      cachedDataType="i4"
+                      cachedName="SchoolKey"
+                      externalMetadataColumnId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].ExternalColumns[SchoolKey]"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[SchoolKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].Columns[LocationKey]"
+                      cachedDataType="i4"
+                      cachedName="LocationKey"
+                      externalMetadataColumnId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[LocationKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].ExternalColumns[SchoolLocationKey]"
+                      dataType="i4"
+                      name="SchoolLocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].ExternalColumns[SchoolKey]"
+                      dataType="i4"
+                      name="SchoolKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source - SchoolLocation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    ds.SchoolKey,
+    dl.LocationKey
+FROM dbo.load_Schools ls
+INNER JOIN dbo.DimSchool ds
+    ON TRY_CAST(LTRIM(RTRIM(ls.school_code)) AS INT) = ds.SchoolCode
+INNER JOIN dbo.DimLocation dl
+    ON LTRIM(RTRIM(ls.town_suburb)) = dl.Suburb
+    AND TRY_CAST(ls.postcode AS INT) = dl.Postcode
+WHERE ls.school_code IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SIRILENOVO\IC.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[SchoolKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[SchoolKey]"
+                      name="SchoolKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      name="LocationKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].ExternalColumns[SchoolKey]"
+                      dataType="i4"
+                      name="SchoolKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[SchoolKey]"
+                      name="SchoolKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      name="LocationKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load FactSchoolLocation.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Load DimCategory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D57CE3F2-D902-445E-A7A2-3CFE7C5882BB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Load DimCategory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{412D78AE-708B-4849-8DD2-F5EC3B5D6467}"
+          SQLTask:SqlStatementSource="INSERT INTO dbo.DimCategory (CategoryName, MinValue, MaxValue)&#xA;VALUES &#xA;    ('$0-$750K',      0,          750000.00),&#xA;    ('$750K-$1.5M',   750000.01,  1500000.00),&#xA;    ('$1.5M-$2.5M',   1500000.01, 2500000.00),&#xA;    ('$2.5M+',        2500000.01, 999999999.99);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Load DimDate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{298B3EFC-8D07-43E2-8E9D-4D492612BD10}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Load DimDate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{412D78AE-708B-4849-8DD2-F5EC3B5D6467}"
+          SQLTask:SqlStatementSource="INSERT INTO dbo.DimDate (DateKey, [Year], [Month], MonthName)&#xA;SELECT &#xA;    (2017 * 100) + n AS DateKey,          -- e.g. 201701, 201702, ... 201712&#xA;    2017 AS [Year],&#xA;    n AS [Month],&#xA;    DATENAME(MONTH, DATEFROMPARTS(2017, n, 1)) AS MonthName&#xA;FROM (VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12)) AS Months(n);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Reset Warehouse"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{48254558-F634-4BDD-99BC-128C69EFFB40}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Reset Warehouse"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{412D78AE-708B-4849-8DD2-F5EC3B5D6467}"
+          SQLTask:SqlStatementSource="-- DELETE all rows from fact tables first (because of FK constraints)&#xA;DELETE FROM dbo.FactPropertyValue;&#xA;DELETE FROM dbo.FactSchoolLocation;&#xA;&#xA;-- Then delete dimension tables&#xA;DELETE FROM dbo.DimLocation;&#xA;DELETE FROM dbo.DimDate;&#xA;DELETE FROM dbo.DimCategory;&#xA;DELETE FROM dbo.DimSchool;&#xA;&#xA;-- Reset identity counters back to 1&#xA;DBCC CHECKIDENT ('dbo.FactPropertyValue', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.FactSchoolLocation', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.DimLocation', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.DimCategory', RESEED, 0);&#xA;DBCC CHECKIDENT ('dbo.DimSchool', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{864734C3-C6B2-4D84-92EC-DC08B72E9BB9}"
+      DTS:From="Package\SQL - Reset Warehouse"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - Load DimLocation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F15AEE1F-A521-4FBC-8472-BD9EF8B541DB}"
+      DTS:From="Package\SQL - Reset Warehouse"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT - Load DimSchool" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A0324BA2-C064-4698-81D0-7A0C8F4624C9}"
+      DTS:From="Package\DFT - Load DimLocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL - Load DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{A867A585-8F3F-4D74-BD86-3C2C9279300D}"
+      DTS:From="Package\DFT - Load DimSchool"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Load DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{F47EF638-FBE8-4A1A-9113-A19D071126DB}"
+      DTS:From="Package\SQL - Load DimDate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Load DimCategory" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{42266EBF-C25B-4311-A8E2-0FF81EFA3AB5}"
+      DTS:From="Package\SQL - Load DimCategory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\DFT - Load FactPropertyValue" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{33B6406C-5ABD-46E5-841A-43DB34A9A3CA}"
+      DTS:From="Package\DFT - Load FactPropertyValue"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\DFT - Load FactSchoolLocation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DFT - Load DimLocation"
+          TopLeft="82,209" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\DFT - Load DimSchool"
+          TopLeft="408,217" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT - Load FactPropertyValue"
+          TopLeft="368.222222222222,433.555555555556" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load FactSchoolLocation"
+          TopLeft="659.222222222222,440.111111111111" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\SQL - Load DimCategory"
+          TopLeft="617.5,322.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SQL - Load DimDate"
+          TopLeft="231,346" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\SQL - Reset Warehouse"
+          TopLeft="208,85" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="303.5,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.5,82"
+              Start="0,0"
+              End="-125.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="-4,41" />
+                  <mssgle:LineSegment
+                    End="-121.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.5,41"
+                    Point2="-125.5,41"
+                    Point3="-125.5,45" />
+                  <mssgle:LineSegment
+                    End="-125.5,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="334,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166,90"
+              Start="0,0"
+              End="166,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4485981308411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.4485981308411"
+                    Point2="0,36.4485981308411"
+                    Point3="4,36.4485981308411" />
+                  <mssgle:LineSegment
+                    End="162,36.4485981308411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162,36.4485981308411"
+                    Point2="166,36.4485981308411"
+                    Point3="166,40.4485981308411" />
+                  <mssgle:LineSegment
+                    End="166,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="178,251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.666666666667,95"
+              Start="0,0"
+              End="112.666666666667,87.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4835787089468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.4835787089468"
+                    Point2="0,56.4835787089468"
+                    Point3="4,56.4835787089468" />
+                  <mssgle:LineSegment
+                    End="108.666666666667,56.4835787089468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.666666666667,56.4835787089468"
+                    Point2="112.666666666667,56.4835787089468"
+                    Point3="112.666666666667,60.4835787089468" />
+                  <mssgle:LineSegment
+                    End="112.666666666667,87.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="500,259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.666666666667,87"
+              Start="0,0"
+              End="-153.666666666667,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.727066817667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.727066817667"
+                    Point2="0,51.727066817667"
+                    Point3="-4,51.727066817667" />
+                  <mssgle:LineSegment
+                    End="-149.666666666667,51.727066817667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.666666666667,51.727066817667"
+                    Point2="-153.666666666667,51.727066817667"
+                    Point3="-153.666666666667,55.727066817667" />
+                  <mssgle:LineSegment
+                    End="-153.666666666667,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="406,367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211.5,-23.5"
+              Start="0,0"
+              End="204,-23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="101.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.75,0"
+                    Point2="105.75,0"
+                    Point3="105.75,-4" />
+                  <mssgle:LineSegment
+                    End="105.75,-19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.75,-19.5"
+                    Point2="105.75,-23.5"
+                    Point3="109.75,-23.5" />
+                  <mssgle:LineSegment
+                    End="204,-23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="715,364.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-236.777777777778,69.055555555556"
+              Start="0,0"
+              End="-236.777777777778,61.555555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.527777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.527777777778"
+                    Point2="0,34.527777777778"
+                    Point3="-4,34.527777777778" />
+                  <mssgle:LineSegment
+                    End="-232.777777777778,34.527777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-232.777777777778,34.527777777778"
+                    Point2="-236.777777777778,34.527777777778"
+                    Point3="-236.777777777778,38.527777777778" />
+                  <mssgle:LineSegment
+                    End="-236.777777777778,61.555555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="588.222222222222,457.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71,0"
+              Start="0,0"
+              End="63.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load DimLocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DFT - Load DimLocation\OLE DB Source - AusLocation"
+          TopLeft="278,90" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation"
+          TopLeft="294,235" />
+        <EdgeLayout
+          Id="Package\DFT - Load DimLocation.Paths[OLE DB Source Output]"
+          TopLeft="386.5,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,103"
+              Start="0,0"
+              End="27,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="4,51.5" />
+                  <mssgle:LineSegment
+                    End="23,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,51.5"
+                    Point2="27,51.5"
+                    Point3="27,55.5" />
+                  <mssgle:LineSegment
+                    End="27,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load DimLocation\OLE DB Destination - DimLocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load DimLocation\OLE DB Source - AusLocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT - Load DimSchool">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\DFT - Load DimSchool\OLE DB Source - Schools"
+          TopLeft="462,123" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT - Load DimSchool\OLE DB Destination"
+          TopLeft="486,265" />
+        <EdgeLayout
+          Id="Package\DFT - Load DimSchool.Paths[OLE DB Source Output]"
+          TopLeft="560,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,100"
+              Start="0,0"
+              End="11.5,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="4,50" />
+                  <mssgle:LineSegment
+                    End="7.5,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,50"
+                    Point2="11.5,50"
+                    Point3="11.5,54" />
+                  <mssgle:LineSegment
+                    End="11.5,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load DimSchool\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load DimSchool\OLE DB Source - Schools">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT - Load FactPropertyValue">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT - Load FactPropertyValue\OLE DB Source"
+          TopLeft="421,88" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT - Load FactPropertyValue\OLE DB Destination"
+          TopLeft="419,241" />
+        <EdgeLayout
+          Id="Package\DFT - Load FactPropertyValue.Paths[OLE DB Source Output]"
+          TopLeft="496,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,111"
+              Start="0,0"
+              End="8.5,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.5"
+                    Point2="0,55.5"
+                    Point3="4,55.5" />
+                  <mssgle:LineSegment
+                    End="4.5,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,55.5"
+                    Point2="8.5,55.5"
+                    Point3="8.5,59.5" />
+                  <mssgle:LineSegment
+                    End="8.5,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load FactPropertyValue\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load FactPropertyValue\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT - Load FactSchoolLocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation"
+          TopLeft="253,95" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation"
+          TopLeft="246,238" />
+        <EdgeLayout
+          Id="Package\DFT - Load FactSchoolLocation.Paths[OLE DB Source Output]"
+          TopLeft="368.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,101"
+              Start="0,0"
+              End="13,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="4,50.5" />
+                  <mssgle:LineSegment
+                    End="9,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,50.5"
+                    Point2="13,50.5"
+                    Point3="13,54.5" />
+                  <mssgle:LineSegment
+                    End="13,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load FactSchoolLocation\OLE DB Destination - FactSchoolLocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load FactSchoolLocation\OLE DB Source - SchoolLocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
